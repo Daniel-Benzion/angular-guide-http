@@ -21,7 +21,7 @@ export class PostsService {
   }
 
   fetchPosts() {
-    this.http.get<{ [key: string]: Post }>(
+    return this.http.get<{ [key: string]: Post }>(
       'https://angular-guide-bde99-default-rtdb.firebaseio.com/posts.json'
     ).pipe(
       map(responseData => {
@@ -33,8 +33,6 @@ export class PostsService {
         }
         return postsArray;
       })
-    ).subscribe(posts => {
-      
-    });
+    );
   }
 }
